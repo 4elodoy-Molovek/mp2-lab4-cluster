@@ -70,9 +70,8 @@ TEST_F(ClusterTest, RENDERING_CAN_BE_ENABLED)
 {
     cluster->EnableRendering(true);
     EXPECT_NO_THROW(cluster->ExecuteTasks());
+    cluster->EnableRendering(false);
 }
-
-cluster->EnableRendering(false);
 
 TEST_F(ClusterTest, UTILIZATION_IN_VALID_RANGE)
 {
