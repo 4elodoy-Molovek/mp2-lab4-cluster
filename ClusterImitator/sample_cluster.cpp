@@ -25,6 +25,7 @@ int main()
 
     Cluster cluster(Tmax, alpha, N, k);
     cluster.ExecuteTasks();
+    std::cout << std::endl << cluster;
 
     return 0;
 }

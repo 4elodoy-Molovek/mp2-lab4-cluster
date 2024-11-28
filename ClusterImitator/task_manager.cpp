@@ -12,13 +12,10 @@ TaskManager::TaskManager(double _totalNodes, int _maxQueueSize)
 
 void TaskManager::AddTask(const Task& task)
 {
-    if (taskQueue.GetSize() < maxQueueSize)
+
+    if (taskQueue.GetSize() + activeTasks.size() < maxQueueSize) 
     {
         taskQueue.Put(task);
-    }
-    else
-    {
-        std::cout << "Task queue is full. Cannot add new task." << std::endl;
     }
 }
 
@@ -40,7 +37,9 @@ void TaskManager::ExecuteStep()
         }
     }
 
-    while (!taskQueue.IsEmpty() && taskQueue.GetFirst().GetNode() <= freeNodes)
+    while (!taskQueue.IsEmpty() &&
+        taskQueue.GetFirst().GetNode() <= freeNodes &&
+        activeTasks.size() < maxQueueSize)
     {
         Task task = taskQueue.GetFirst();
         freeNodes -= task.GetNode();
@@ -48,7 +47,8 @@ void TaskManager::ExecuteStep()
         taskQueue.RemoveFirst();
     }
 
-    busyTime += (totalNodes - freeNodes) / totalNodes;
+    double currentlyBusyNodes = totalNodes - freeNodes;
+    busyTime += (currentlyBusyNodes / totalNodes);
     ++currentTime;
 }
 
@@ -69,5 +69,10 @@ double TaskManager::GetFreeNodes() const
 
 double TaskManager::GetUtilization() const
 {
-    return (busyTime / currentTime) * 100;
+    return currentTime > 0 ? (busyTime / currentTime) * 100 : 0;
+}
+
+double TaskManager::GetAverageUtilization() const
+{
+    return currentTime > 0 ? (busyTime / currentTime) * 100.0 : 0.0;
 }

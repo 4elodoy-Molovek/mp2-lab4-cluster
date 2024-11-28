@@ -24,4 +24,5 @@ public:
     int GetCompletedTasks() const; // Get count of completed tasks
     double GetFreeNodes() const; // Get count of free nodes
     double GetUtilization() const; // Get utilization percentage
+    double GetAverageUtilization() const; //Get average utilization pertcentage
 };

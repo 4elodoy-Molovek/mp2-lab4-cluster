@@ -20,12 +20,14 @@ void Cluster::ExecuteTasks()
 {
     for (int t = 0; t < Tmax; ++t)
     {
-        for (int i = 0; i < k; ++i)
+        int newTasksCount = 0;
+        for (int i = 0; i < k && newTasksCount < k; ++i)
         {
             if (GenerateNewTask())
             {
                 Task newTask;
                 manager.AddTask(newTask);
+                newTasksCount++;
             }
         }
 
@@ -33,15 +35,19 @@ void Cluster::ExecuteTasks()
         ui->RenderCluster(*this);
         currentTime++;
     }
-
-    // Вывод статистики после завершения работы кластера
-    std::cout << "Final statistics:\n";
-    std::cout << "Total completed tasks: " << manager.GetCompletedTasks() << '\n';
-    std::cout << "Total pending tasks: " << manager.GetPendingTasks() << '\n';
-    std::cout << "Average cluster utilization: " << manager.GetUtilization() << "%\n";
 }
 
 double Cluster::GetNodeCount() const
 {
     return manager.GetFreeNodes();
+}
+
+std::ostream& operator<<(std::ostream& out, const Cluster& c)
+{
+    out << "Cluster Final Statistics:\n"
+        << "Total runtime: " << c.currentTime << " time units\n"
+        << "Completed tasks: " << c.manager.GetCompletedTasks() << "\n"
+        << "Unfinished tasks: " << c.manager.GetPendingTasks() << "\n"
+        << "Average cluster utilization: " << c.manager.GetAverageUtilization() << "%\n";
+    return out;
 }

@@ -29,4 +29,5 @@ public:
     double GetUtilization() const { return manager.GetUtilization(); }
     int GetPendingTasks() const { return manager.GetPendingTasks(); }
     int GetCompletedTasks() const { return manager.GetCompletedTasks(); }
+    friend std::ostream& operator<<(std::ostream& out, const Cluster& c);
 };

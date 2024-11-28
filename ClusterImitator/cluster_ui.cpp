@@ -7,7 +7,7 @@
 
 void ClusterUI::RenderCluster(const Cluster& c)
 {
-    system("cls"); // Очистка консоли
+    system("cls");
 
     int totalNodes = static_cast<int>(c.GetTotalNodes());
     int freeNodes = static_cast<int>(c.GetNodeCount());
@@ -22,15 +22,15 @@ void ClusterUI::RenderCluster(const Cluster& c)
         {
             if (nodeCounter < usedNodes)
             {
-                std::cout << "\033[1;31m[#]\033[0m "; // Красный для используемых узлов
+                std::cout << "\033[1;31m[#]\033[0m ";
             }
             else if (nodeCounter < totalNodes)
             {
-                std::cout << "\033[1;32m[#]\033[0m "; // Зеленый для свободных узлов
+                std::cout << "\033[1;32m[#]\033[0m ";
             }
             else
             {
-                std::cout << "    "; // Пустое место для несуществующих узлов
+                std::cout << "    ";
             }
 
             nodeCounter++;
