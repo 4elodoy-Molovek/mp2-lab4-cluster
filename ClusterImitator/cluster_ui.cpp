@@ -7,7 +7,10 @@
 
 void ClusterUI::RenderCluster(const Cluster& c)
 {
-    system("cls");
+    if (!renderEnabled)
+    {
+        return;
+    }
 
     int totalNodes = static_cast<int>(c.GetTotalNodes());
     int freeNodes = static_cast<int>(c.GetNodeCount());
@@ -22,15 +25,15 @@ void ClusterUI::RenderCluster(const Cluster& c)
         {
             if (nodeCounter < usedNodes)
             {
-                std::cout << "\033[1;31m[#]\033[0m ";
+                std::cout << "\033[1;31m[#]\033[0m "; // Red for used nodes
             }
             else if (nodeCounter < totalNodes)
             {
-                std::cout << "\033[1;32m[#]\033[0m ";
+                std::cout << "\033[1;32m[#]\033[0m "; // Green for free nodes
             }
             else
             {
-                std::cout << "    ";
+                std::cout << "    "; // Empty space for non-existent nodes
             }
 
             nodeCounter++;
@@ -43,5 +46,5 @@ void ClusterUI::RenderCluster(const Cluster& c)
     std::cout << "Pending tasks: " << c.GetPendingTasks() << std::endl;
     std::cout << "Cluster utilization: " << c.GetUtilization() << "%" << std::endl;
 
-    std::this_thread::sleep_for(std::chrono::seconds(1)); // Фиксированная задержка в 1 секунду
+    std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Small delay
 }

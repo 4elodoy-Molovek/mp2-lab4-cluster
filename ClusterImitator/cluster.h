@@ -15,6 +15,7 @@ private:
     int currentTime; // Current simulation step
     TaskManager manager; // Task manager for handling tasks
     ClusterUI* ui; // Pointer to ClusterUI (avoids circular dependency)
+    bool renderEnabled; // Flag to control rendering
 
     bool GenerateNewTask();
 
@@ -23,11 +24,13 @@ public:
     ~Cluster(); // Destructor to handle UI cleanup
 
     void ExecuteTasks();
+    void EnableRendering(bool enable = true);
     double GetNodeCount() const;
     double GetTotalNodes() const { return N; }
     int GetCurrentTime() const { return currentTime; }
     double GetUtilization() const { return manager.GetUtilization(); }
     int GetPendingTasks() const { return manager.GetPendingTasks(); }
     int GetCompletedTasks() const { return manager.GetCompletedTasks(); }
+
     friend std::ostream& operator<<(std::ostream& out, const Cluster& c);
 };
