@@ -1,28 +1,30 @@
 ﻿#pragma once
 #include "task.h"
 #include "tqueue.h"
+#include "clamp.h"
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 class TaskManager
 {
 private:
-    TQueue<Task> taskQueue; // Queue of tasks
-    std::vector<Task> activeTasks; // Currently executing tasks
-    double freeNodes; // Available cluster nodes
-    double totalNodes; // Total cluster nodes
-    int completedTasks; // Number of completed tasks
-    double busyTime; // Time spent busy
-    int currentTime; // Current time step
-    int maxQueueSize; // Maximum number of tasks in the queue
+    TQueue<Task> taskQueue;
+    std::vector<Task> activeTasks;
+    double freeNodes;
+    double totalNodes;
+    int completedTasks;
+    double busyTime;
+    int currentTime;
+    int maxQueueSize;
 
 public:
     TaskManager(double totalNodes, int maxQueueSize);
-    void AddTask(const Task& task); // Add a new task to the queue
-    void ExecuteStep(); // Execute one time step
-    int GetPendingTasks() const; // Get count of pending tasks
-    int GetCompletedTasks() const; // Get count of completed tasks
-    double GetFreeNodes() const; // Get count of free nodes
-    double GetUtilization() const; // Get utilization percentage
-    double GetAverageUtilization() const; //Get average utilization pertcentage
+    void AddTask(const Task& task);
+    void ExecuteStep();
+    int GetPendingTasks() const;
+    int GetCompletedTasks() const;
+    double GetFreeNodes() const;
+    double GetUtilization() const;
+    double GetAverageUtilization() const;
 };

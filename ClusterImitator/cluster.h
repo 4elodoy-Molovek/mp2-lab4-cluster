@@ -16,15 +16,17 @@ private:
     TaskManager manager; // Task manager for handling tasks
     ClusterUI* ui; // Pointer to ClusterUI (avoids circular dependency)
     bool renderEnabled; // Flag to control rendering
+    bool isTesting; // Flag for testing mode
 
     bool GenerateNewTask();
 
 public:
-    Cluster(double _Tmax, int _alpha, double _N, int _k);
+    Cluster(double _Tmax, int _alpha, double _N, int _k, bool testing = false);
     ~Cluster(); // Destructor to handle UI cleanup
 
     void ExecuteTasks();
     void EnableRendering(bool enable = true);
+    void SetTestingMode(bool testing);
     double GetNodeCount() const;
     double GetTotalNodes() const { return N; }
     int GetCurrentTime() const { return currentTime; }

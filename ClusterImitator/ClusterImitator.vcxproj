@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="clamp.h" />
     <ClInclude Include="cluster.h" />
     <ClInclude Include="cluster_ui.h" />
     <ClInclude Include="tqueue.h" />

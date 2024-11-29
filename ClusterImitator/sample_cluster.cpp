@@ -23,7 +23,8 @@ int main()
     std::cout << "Enter the maximum number of tasks in the queue: ";
     std::cin >> k;
 
-    Cluster cluster(Tmax, alpha, N, k);
+    // Pass `true` for testing mode, `false` otherwise
+    Cluster cluster(Tmax, alpha, N, k, false);
     cluster.ExecuteTasks();
     std::cout << std::endl << cluster;
 

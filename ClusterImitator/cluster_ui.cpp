@@ -12,6 +12,13 @@ void ClusterUI::RenderCluster(const Cluster& c)
         return;
     }
 
+    // Clear the console
+#ifdef _WIN32
+    system("cls");
+#else
+    std::cout << "\033[2J\033[1;1H"; // ANSI escape sequence for cross-platform clearing
+#endif
+
     int totalNodes = static_cast<int>(c.GetTotalNodes());
     int freeNodes = static_cast<int>(c.GetNodeCount());
     int usedNodes = totalNodes - freeNodes;
@@ -46,5 +53,5 @@ void ClusterUI::RenderCluster(const Cluster& c)
     std::cout << "Pending tasks: " << c.GetPendingTasks() << std::endl;
     std::cout << "Cluster utilization: " << c.GetUtilization() << "%" << std::endl;
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Small delay
+    std::this_thread::sleep_for(std::chrono::milliseconds(10)); // Small delay
 }

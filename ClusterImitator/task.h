@@ -3,11 +3,12 @@
 class Task
 {
 private:
-    int time; // Time required to complete the task
-    int node; // Number of nodes required
+    int time;
+    int node;
 
 public:
     Task();
+    Task(int t, int n);
     void ChangeT();
     int GetTime() const;
     int GetNode() const;

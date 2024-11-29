@@ -60,6 +60,7 @@ TEST_F(TQueueTest, GET_FIRST_TASK_ON_EMPTY_QUEUE_RETURNS_DEFAULT_TASK)
 {
     Task defaultTask = queue->GetFirst();
     EXPECT_EQ(defaultTask.GetTime(), 0);
+    EXPECT_EQ(defaultTask.GetNode(), 0);
 }
 
 TEST_F(TQueueTest, PUT_MULTIPLE_TASKS_IN_QUEUE)
@@ -144,6 +145,7 @@ TEST_F(TQueueTest, GET_FIRST_TASK_RETURNS_DEFAULT_ON_EMPTY_QUEUE)
 {
     Task defaultTask = queue->GetFirst();
     EXPECT_EQ(defaultTask.GetTime(), 0);
+    EXPECT_EQ(defaultTask.GetNode(), 0);
 }
 
 TEST_F(TQueueTest, QUEUE_SIZE_IS_ZERO_AFTER_ALL_REMOVALS)

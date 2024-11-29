@@ -33,7 +33,7 @@ void TQueue<T>::RemoveFirst()
 template <typename T>
 T TQueue<T>::GetFirst() const
 {
-    return queue.empty() ? T() : queue.front();
+    return queue.empty() ? T(0, 0) : queue.front();
 }
 
 template <typename T>

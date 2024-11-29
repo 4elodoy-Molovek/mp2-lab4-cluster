@@ -30,6 +30,9 @@
     <ClInclude Include="task_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="clamp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cluster.cpp">

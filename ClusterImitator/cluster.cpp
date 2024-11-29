@@ -1,13 +1,14 @@
 ﻿#include "cluster.h"
 
-Cluster::Cluster(double _Tmax, int _alpha, double _N, int _k) :
+Cluster::Cluster(double _Tmax, int _alpha, double _N, int _k, bool testing) :
     Tmax(_Tmax), alpha(_alpha), N(_N), k(_k),
     manager(_N, _k),
     currentTime(0),
-    renderEnabled(false)
+    renderEnabled(!testing),
+    isTesting(testing)
 {
     ui = new ClusterUI();
-    ui->EnableRendering(false);
+    ui->EnableRendering(!testing); // Disable rendering in testing mode
 }
 
 Cluster::~Cluster()
@@ -24,6 +25,12 @@ void Cluster::EnableRendering(bool enable)
 {
     renderEnabled = enable;
     ui->EnableRendering(enable);
+}
+
+void Cluster::SetTestingMode(bool testing)
+{
+    isTesting = testing;
+    EnableRendering(!testing); // Disable rendering if in testing mode
 }
 
 void Cluster::ExecuteTasks()

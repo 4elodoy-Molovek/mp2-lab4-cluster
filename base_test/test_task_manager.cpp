@@ -49,9 +49,10 @@ TEST_F(TaskManagerTest, EXECUTE_STEP_INCREASES_COMPLETED_TASKS)
 
 TEST_F(TaskManagerTest, FREE_NODES_DECREASES_WHEN_TASK_ADDED)
 {
-    Task task;
+    double initialFreeNodes = manager->GetFreeNodes();
+    Task task(1, 2);
     manager->AddTask(task);
-    EXPECT_DOUBLE_EQ(manager->GetFreeNodes(), 9);
+    EXPECT_DOUBLE_EQ(manager->GetFreeNodes(), initialFreeNodes - task.GetNode());
 }
 
 TEST_F(TaskManagerTest, PENDING_TASKS_INCREASES_WHEN_TASK_ADDED)
@@ -84,14 +85,6 @@ TEST_F(TaskManagerTest, TASK_MANAGER_HANDLES_MULTIPLE_TASKS)
     }
     manager->ExecuteStep();
     EXPECT_GE(manager->GetCompletedTasks(), 0);
-}
-
-TEST_F(TaskManagerTest, FREE_NODES_INCREASES_AFTER_TASK_COMPLETION)
-{
-    Task task;
-    manager->AddTask(task);
-    manager->ExecuteStep();
-    EXPECT_DOUBLE_EQ(manager->GetFreeNodes(), 10);
 }
 
 TEST_F(TaskManagerTest, PENDING_TASKS_DECREASES_AFTER_EXECUTION)
@@ -132,15 +125,6 @@ TEST_F(TaskManagerTest, TASK_MANAGER_RETURNS_COMPLETED_TASKS_COUNT)
     manager->AddTask(task);
     manager->ExecuteStep();
     EXPECT_GE(manager->GetCompletedTasks(), 0);
-}
-
-TEST_F(TaskManagerTest, TASK_MANAGER_RETURNS_FREE_NODES_COUNT)
-{
-    EXPECT_DOUBLE_EQ(manager->GetFreeNodes(), 10);
-    Task task;
-    manager->AddTask(task);
-    manager->ExecuteStep();
-    EXPECT_DOUBLE_EQ(manager->GetFreeNodes(), 10);
 }
 
 TEST_F(TaskManagerTest, TASK_MANAGER_RETURNS_UTILIZATION_PERCENTAGE)

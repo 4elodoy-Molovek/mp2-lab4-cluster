@@ -7,6 +7,12 @@ Task::Task()
     node = rand() % 3 + 1;
 }
 
+Task::Task(int t, int n)
+{
+    time = t;
+    node = n;
+}
+
 void Task::ChangeT()
 {
     if (time > 0)
