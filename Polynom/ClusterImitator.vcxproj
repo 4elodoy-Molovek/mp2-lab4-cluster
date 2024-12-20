@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="linked_list.h" />
+    <ClInclude Include="monom.h" />
+    <ClInclude Include="polynom.h" />
+    <ClInclude Include="sorted_list.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="monom.cpp" />
+    <ClCompile Include="polynom.cpp" />
+    <ClCompile Include="sample.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -135,21 +146,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="clamp.h" />
-    <ClInclude Include="cluster.h" />
-    <ClInclude Include="cluster_ui.h" />
-    <ClInclude Include="tqueue.h" />
-    <ClInclude Include="task.h" />
-    <ClInclude Include="task_manager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="cluster.cpp" />
-    <ClCompile Include="cluster_ui.cpp" />
-    <ClCompile Include="sample_cluster.cpp" />
-    <ClCompile Include="task.cpp" />
-    <ClCompile Include="task_manager.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

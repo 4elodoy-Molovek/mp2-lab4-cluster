@@ -10,6 +10,21 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Polynom\monom.cpp" />
+    <ClCompile Include="..\Polynom\polynom.cpp" />
+    <ClCompile Include="test_linked_list.cpp" />
+    <ClCompile Include="test_main.cpp" />
+    <ClCompile Include="test_monom.cpp" />
+    <ClCompile Include="test_polynom.cpp" />
+    <ClCompile Include="test_sorted_list.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Polynom\linked_list.h" />
+    <ClInclude Include="..\Polynom\monom.h" />
+    <ClInclude Include="..\Polynom\polynom.h" />
+    <ClInclude Include="..\Polynom\sorted_list.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F266A6B4-CBC2-41C0-9F55-056959ABA352}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -53,7 +68,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\gtest;..\ClusterImitator</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\gtest;..\Polynom</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
@@ -72,7 +87,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\gtest;..\ClusterImitator</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\gtest;..\Polynom</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
@@ -84,26 +99,6 @@
       <AdditionalDependencies>gtest.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\ClusterImitator\cluster.cpp" />
-    <ClCompile Include="..\ClusterImitator\cluster_ui.cpp" />
-    <ClCompile Include="..\ClusterImitator\task.cpp" />
-    <ClCompile Include="..\ClusterImitator\task_manager.cpp" />
-    <ClCompile Include="test_cluster.cpp" />
-    <ClCompile Include="test_main.cpp" />
-    <ClCompile Include="test_task_manager.cpp" />
-    <ClCompile Include="test_tqueue.cpp" />
-    <ClCompile Include="test_task.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\base\postfix.h" />
-    <ClInclude Include="..\base\stack.h" />
-    <ClInclude Include="..\ClusterImitator\cluster.h" />
-    <ClInclude Include="..\ClusterImitator\cluster_ui.h" />
-    <ClInclude Include="..\ClusterImitator\task.h" />
-    <ClInclude Include="..\ClusterImitator\task_manager.h" />
-    <ClInclude Include="..\ClusterImitator\tqueue.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

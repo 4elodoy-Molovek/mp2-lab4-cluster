@@ -15,39 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cluster.h">
+    <ClInclude Include="linked_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tqueue.h">
+    <ClInclude Include="monom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="task.h">
+    <ClInclude Include="polynom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cluster_ui.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="task_manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="clamp.h">
+    <ClInclude Include="sorted_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cluster.cpp">
+    <ClCompile Include="monom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="task.cpp">
+    <ClCompile Include="polynom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cluster_ui.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="task_manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sample_cluster.cpp">
+    <ClCompile Include="sample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
